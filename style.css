@@ -20,7 +20,7 @@ body{
   justify-content:center;
   padding:2rem;
   color:var(--text);
-  overflow:hidden; /* keeps background bear clean */
+  overflow:hidden; /* keeps background clean */
 }
 
 /* background bouncing bear */
@@ -28,7 +28,7 @@ body{
   position: fixed;
   right: 28px;
   bottom: 22px;
-  font-size: 7.5rem;   /* adjust size here if needed */
+  font-size: 7.5rem;   /* adjust size here */
   opacity: 0.35;
   pointer-events: none;
   z-index: 0;
@@ -41,16 +41,15 @@ body{
   50%      { transform: translateY(-14px); }
 }
 
-
 /* center container */
 .center{
   width:100%;
   max-width:760px;
   position: relative;
-  z-index: 1; /* above background bear */
+  z-index: 1; /* above bear */
 }
 
-/* Your current index.html uses .content as the main container */
+/* main card (your index.html uses .content) */
 .content{
   background: var(--card-bg);
   border-radius: 16px;
@@ -61,7 +60,7 @@ body{
   overflow: hidden;
 }
 
-/* bubble-like heading */
+/* heading */
 .bubble-heading{
   font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
   margin: 0 0 1.25rem;
@@ -73,7 +72,7 @@ body{
   font-weight: 700;
 }
 
-/* separate lines with different sizing */
+/* two separate lines */
 .bubble-heading .line1{
   font-size: clamp(1.8rem, 6vw, 2.7rem);
   margin: 0;
@@ -85,7 +84,7 @@ body{
   margin-top: 8px;
 }
 
-/* button area bigger so No has room to run */
+/* button area (extra space for runaway No) */
 .buttons{
   position: relative;
   height: 170px;
@@ -94,21 +93,21 @@ body{
   justify-content: center;
 }
 
-/* bigger, cuter buttons */
+/* buttons */
 .btn{
-  --pad: 1.1rem 2.6rem;
-  padding: var(--pad);
+  padding: 1.1rem 2.6rem;
   border-radius: 999px;
   border: 0;
   cursor: pointer;
   font-weight: 700;
   font-size: 1.25rem;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, left 0.12s ease, top 0.12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
   position: relative;
   z-index: 2;
   user-select: none;
 }
 
+/* Yes button */
 .yes{
   background: linear-gradient(180deg, var(--accent), #ff7b8b);
   color: #fff;
@@ -116,21 +115,21 @@ body{
   box-shadow: 0 8px 24px rgba(255,77,109,0.25);
 }
 
+.yes:hover{
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* No button */
 .no{
   background: rgba(255,255,255,0.6);
   color: #333;
   border: 3px solid #ffd6df;
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  position: absolute; /* moved around by JS */
+  position: absolute;
   left: 60%;
   top: 50%;
   transform: translate(0,0);
-  z-index: 2;
 }
-
-/* hover effects */
-.yes:hover{ transform: translateY(-3px) scale(1.03); }
-.no:hover{ transform: translateY(-2px) rotate(-1deg); }
 
 /* small screen adjustments */
 @media (max-width:420px){
@@ -138,5 +137,5 @@ body{
   .buttons{ height: 210px; }
   .no{ left: 65%; }
   .btn{ font-size: 1.05rem; padding: 0.9rem 1.8rem; }
-  .bg-bear{ font-size: 4.8rem; right: 18px; bottom: 14px; }
+  .bg-bear{ font-size: 6rem; right: 18px; bottom: 14px; }
 }
