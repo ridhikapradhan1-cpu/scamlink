@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Yayy!</title>
 
-  <!-- Optional: Google Font for a cute look -->
+  <!-- Optional cute font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
@@ -28,21 +28,24 @@
       60% { transform: scale(1.12); opacity:1 }
       100% { transform: scale(1); }
     }
-    /* Avatar (circular photo) */
+
+    /* Keep the picture rectangular (not circular) and preserve the same dimensions */
     .picture{
-      width:320px;
-      height:320px;
+      max-width:420px;
+      width:100%;
+      height:auto;
       object-fit:cover;
-      border-radius:50%;
-      border:8px solid rgba(255,255,255,0.9);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      border-radius:12px; /* small rounded corners, not a circle */
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
 
-    /* small caption text */
-    .caption {
+    .note {
       font-size:1.05rem;
       color:#5a363f;
+      text-align:center;
       margin-top:0.25rem;
+      line-height:1.25;
+      white-space:pre-line; /* preserves line breaks if you add them */
     }
   </style>
 </head>
@@ -51,17 +54,16 @@
     <div class="card">
       <div class="heart">💖 Yayy! 💖</div>
 
-      <!-- Use your uploaded image file name here -->
-      <img src="Krishang.jpg" alt="Krishang" class="picture" />
+      <!-- Replace krishang.jpg with your uploaded image filename if different -->
+      <img src="krishang.jpg" alt="Krishang" class="picture" />
 
-      <p class="caption">Thanks for saying yes 💘</p>
+      <p class="note">I forgive you for not asking me, IK I'm the more romantic one 😉. ilyyy, can't wait for our date!!!</p>
     </div>
   </main>
 
-  <!-- Confetti: lightweight CDN version -->
+  <!-- Confetti (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
-    // small celebratory burst when page loads
     window.addEventListener('load', () => {
       confetti({
         particleCount: 120,
