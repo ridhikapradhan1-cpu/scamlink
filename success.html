@@ -2,67 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yayy!</title>
 
-  <!-- Optional cute font -->
+  <!-- Cute font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Reuse your existing styles -->
   <link rel="stylesheet" href="style.css" />
+
   <style>
-    body { font-family: 'Poppins', system-ui, -apple-system, sans-serif; }
-    .card{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:1rem;
-      padding:2rem;
+    body{
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      overflow-y: auto;
     }
+
+    .center{
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+      width: min(760px, 100%);
+      max-height: calc(100vh - 2rem);
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
     .heart{
-      font-size:3rem;
+      font-size: 2.8rem;
       color: #ff3b6b;
+      text-align: center;
       animation: pop 0.6s ease;
     }
+
     @keyframes pop {
-      0% { transform: scale(.6); opacity:0 }
-      60% { transform: scale(1.12); opacity:1 }
+      0% { transform: scale(.6); opacity: 0; }
+      60% { transform: scale(1.12); opacity: 1; }
       100% { transform: scale(1); }
     }
 
-    /* Keep the picture rectangular (not circular) and preserve the same dimensions */
+    /* IMAGE FIX */
     .picture{
-      max-width:420px;
-      width:100%;
-      height:auto;
-      object-fit:cover;
-      border-radius:12px; /* small rounded corners, not a circle */
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      max-height: 45vh;      /* keeps text visible on all screens */
+      object-fit: contain;  /* no cropping */
+      border-radius: 12px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
 
-    .note {
-      font-size:1.05rem;
-      color:#5a363f;
-      text-align:center;
-      margin-top:0.25rem;
-      line-height:1.25;
-      white-space:pre-line; /* preserves line breaks if you add them */
+    .note{
+      font-size: 1.05rem;
+      color: #5a363f;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    /* Small screens */
+    @media (max-width: 420px){
+      .card{
+        padding: 1.25rem;
+      }
+      .picture{
+        max-height: 38vh;
+      }
+      .heart{
+        font-size: 2.2rem;
+      }
+      .note{
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <main class="center">
     <div class="card">
       <div class="heart">💖 YAYYYYYYY! I WON 💖</div>
 
-      <!-- Replace krishang.jpg with your uploaded image filename if different -->
+      <!-- Make sure the filename matches exactly -->
       <img src="Krishang.jpg" alt="Krishang" class="picture" />
 
-      <p class="note">I forgive you for not asking me, I know I'm the more romantic one 😉.</p> 
-      <p class="note">ilyyy, can't wait for our date!!!</p>
+      <p class="note">
+        I forgive you for not asking me, I know I'm the more romantic one 😉.
+      </p>
+
+      <p class="note">
+        ilyyy, can't wait for our date!!!
+      </p>
     </div>
   </main>
 
-  <!-- Confetti (optional) -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
     window.addEventListener('load', () => {
